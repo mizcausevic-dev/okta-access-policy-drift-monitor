@@ -1,0 +1,32 @@
+{
+  "name": "okta-access-policy-drift-monitor",
+  "version": "1.0.0",
+  "description": "Board-readable drift monitor for Okta access policies, MFA coverage, stale exceptions, privileged apps, and identity-risk remediation posture.",
+  "type": "module",
+  "bin": {
+    "okta-access-policy-drift-monitor": "./bin/cli.js"
+  },
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --coverage",
+    "build": "tsc",
+    "demo": "node dist/bin/cli.js fixtures/okta-policy-sample.json --format markdown",
+    "prerender": "tsx scripts/prerender.ts",
+    "smoke": "tsx scripts/smoke_check.ts",
+    "verify": "npm run lint && npm run typecheck && npm run test && npm run build && npm run demo && npm run prerender && npm run smoke"
+  },
+  "keywords": ["okta", "identity", "iam", "mfa", "access-policy", "kinetic-gain"],
+  "license": "AGPL-3.0",
+  "devDependencies": {
+    "@eslint/js": "^9.28.0",
+    "@types/node": "^22.15.29",
+    "@vitest/coverage-v8": "^4.1.8",
+    "eslint": "^9.28.0",
+    "globals": "^16.2.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.33.1",
+    "vitest": "^4.1.8"
+  }
+}
